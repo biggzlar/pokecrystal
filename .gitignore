@@ -37,3 +37,13 @@ gfx/pokemon/*/frames.asm
 *.sn*
 *.sa*
 *.sg1
+*.ram
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+__MACOSX/
