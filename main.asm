@@ -666,6 +666,11 @@ if DEF(_DEBUG)
 INCLUDE "engine/debug/debug_room.asm"
 endc
 
+if DEF(_DEBUG)
+SECTION "Debug New Game", ROMX
+INCLUDE "engine/debug/debug_new_game.asm"
+endc
+
 
 SECTION "Battle Tower Text", ROMX
 
