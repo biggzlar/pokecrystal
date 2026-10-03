@@ -14,6 +14,7 @@ MahoganyGym_MapScripts:
 
 MahoganyGymPryceScript:
 	faceplayer
+	gym_rematch REMATCH_PRYCE, PryceRematchOfferText, PryceRematchAcceptText, PryceRematchDeclineText, PryceRematchBeatenText
 	opentext
 	checkevent EVENT_BEAT_PRYCE
 	iftrue .FightDone
@@ -73,6 +74,7 @@ TrainerSkierRoxanne:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_ROXANNE, RoxanneRematchOfferText, RoxanneRematchAcceptText, RoxanneRematchDeclineText, RoxanneRematchBeatenText
 	opentext
 	writetext SkierRoxanneAfterBattleText
 	waitbutton
@@ -84,6 +86,7 @@ TrainerSkierClarissa:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_CLARISSA, ClarissaRematchOfferText, ClarissaRematchAcceptText, ClarissaRematchDeclineText, ClarissaRematchBeatenText
 	opentext
 	writetext SkierClarissaAfterBattleText
 	waitbutton
@@ -95,6 +98,7 @@ TrainerBoarderRonald:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_RONALD, RonaldRematchOfferText, RonaldRematchAcceptText, RonaldRematchDeclineText, RonaldRematchBeatenText
 	opentext
 	writetext BoarderRonaldAfterBattleText
 	waitbutton
@@ -106,6 +110,7 @@ TrainerBoarderBrad:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_BRAD, BradRematchOfferText, BradRematchAcceptText, BradRematchDeclineText, BradRematchBeatenText
 	opentext
 	writetext BoarderBradAfterBattleText
 	waitbutton
@@ -117,6 +122,7 @@ TrainerBoarderDouglas:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_DOUGLAS, DouglasRematchOfferText, DouglasRematchAcceptText, DouglasRematchDeclineText, DouglasRematchBeatenText
 	opentext
 	writetext BoarderDouglasAfterBattleText
 	waitbutton
@@ -368,6 +374,149 @@ MahoganyGymGuideWinText:
 
 	para "bridged the gen-"
 	line "eration gap!"
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+PryceRematchOfferText:
+	text "Age has not"
+	line "slowed my"
+	line "training."
+
+	para "The cold makes"
+	line "us sharper."
+	cont "Face it again?"
+	done
+
+PryceRematchAcceptText:
+	text "Then brace"
+	line "yourself."
+	done
+
+PryceRematchDeclineText:
+	text "The ice will"
+	line "keep."
+	done
+
+PryceRematchBeatenText:
+	text "Experience still"
+	line "lost to youth…"
+	done
+
+RoxanneRematchOfferText:
+	text "The slopes have"
+	line "been perfect."
+
+	para "My #MON carved"
+	line "them all week."
+	cont "Race me?"
+	done
+
+RoxanneRematchAcceptText:
+	text "Downhill!"
+	done
+
+RoxanneRematchDeclineText:
+	text "Fresh powder"
+	line "can wait."
+	done
+
+RoxanneRematchBeatenText:
+	text "Wiped out"
+	line "again…"
+	done
+
+ClarissaRematchOfferText:
+	text "I took a hard"
+	line "fall last time."
+
+	para "I've worked on"
+	line "my landings."
+	cont "Rematch?"
+	done
+
+ClarissaRematchAcceptText:
+	text "Watch my form!"
+	done
+
+ClarissaRematchDeclineText:
+	text "I'll stay on"
+	line "the lift."
+	done
+
+ClarissaRematchBeatenText:
+	text "That landing"
+	line "still hurt…"
+	done
+
+RonaldRematchOfferText:
+	text "Boarding in a"
+	line "gym is weird."
+	line "I know."
+
+	para "I've been"
+	line "grinding anyway."
+	cont "You in?"
+	done
+
+RonaldRematchAcceptText:
+	text "Shred it!"
+	done
+
+RonaldRematchDeclineText:
+	text "The half-pipe"
+	line "can wait."
+	done
+
+RonaldRematchBeatenText:
+	text "Ate snow. Again."
+	done
+
+BradRematchOfferText:
+	text "Cold never"
+	line "bothered my"
+	line "team."
+
+	para "They're even"
+	line "icier now."
+	cont "Battle?"
+	done
+
+BradRematchAcceptText:
+	text "Freeze up!"
+	done
+
+BradRematchDeclineText:
+	text "Stay warm, then."
+	done
+
+BradRematchBeatenText:
+	text "We cracked"
+	line "first…"
+	done
+
+DouglasRematchOfferText:
+	text "I ride until I"
+	line "can't feel my"
+	line "face."
+
+	para "That means I'm"
+	line "ready. Are you?"
+	done
+
+DouglasRematchAcceptText:
+	text "Hold on!"
+	done
+
+DouglasRematchDeclineText:
+	text "One more run"
+	line "for me, then."
+	done
+
+DouglasRematchBeatenText:
+	text "Numb, and I"
+	line "still lost…"
 	done
 
 MahoganyGym_MapEvents:

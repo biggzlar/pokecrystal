@@ -13,6 +13,7 @@ SaffronGym_MapScripts:
 
 SaffronGymSabrinaScript:
 	faceplayer
+	gym_rematch REMATCH_SABRINA, SabrinaRematchOfferText, SabrinaRematchAcceptText, SabrinaRematchDeclineText, SabrinaRematchBeatenText
 	opentext
 	checkflag ENGINE_MARSHBADGE
 	iftrue .FightDone
@@ -49,6 +50,7 @@ TrainerMediumRebecca:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_REBECCA, RebeccaRematchOfferText, RebeccaRematchAcceptText, RebeccaRematchDeclineText, RebeccaRematchBeatenText
 	opentext
 	writetext MediumRebeccaAfterBattleText
 	waitbutton
@@ -60,6 +62,7 @@ TrainerPsychicFranklin:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_FRANKLIN, FranklinRematchOfferText, FranklinRematchAcceptText, FranklinRematchDeclineText, FranklinRematchBeatenText
 	opentext
 	writetext PsychicFranklinAfterBattleText
 	waitbutton
@@ -71,6 +74,7 @@ TrainerMediumDoris:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_DORIS, DorisRematchOfferText, DorisRematchAcceptText, DorisRematchDeclineText, DorisRematchBeatenText
 	opentext
 	writetext MediumDorisAfterBattleText
 	waitbutton
@@ -82,6 +86,7 @@ TrainerPsychicJared:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_JARED, JaredRematchOfferText, JaredRematchAcceptText, JaredRematchDeclineText, JaredRematchBeatenText
 	opentext
 	writetext PsychicJaredAfterBattleText
 	waitbutton
@@ -286,6 +291,124 @@ SaffronGymGuideText:
 SaffronGymGuideWinText:
 	text "That was another"
 	line "fantastic battle!"
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+SabrinaRematchOfferText:
+	text "I already know"
+	line "how this battle"
+	line "ends."
+
+	para "I want to see"
+	line "if you do."
+	cont "Sit."
+	done
+
+SabrinaRematchAcceptText:
+	text "Then begin."
+	done
+
+SabrinaRematchDeclineText:
+	text "The future can"
+	line "wait."
+	done
+
+SabrinaRematchBeatenText:
+	text "That future…"
+	line "was not mine."
+	done
+
+RebeccaRematchOfferText:
+	text "The cards showed"
+	line "you returning."
+
+	para "They did not"
+	line "show the winner."
+	cont "Shall we draw?"
+	done
+
+RebeccaRematchAcceptText:
+	text "Turn a card."
+	done
+
+RebeccaRematchDeclineText:
+	text "The deck waits."
+	done
+
+RebeccaRematchBeatenText:
+	text "A blank card…"
+	done
+
+FranklinRematchOfferText:
+	text "Psychic power"
+	line "grows with use."
+
+	para "I have used"
+	line "mine."
+	cont "Test it?"
+	done
+
+FranklinRematchAcceptText:
+	text "Focus."
+	done
+
+FranklinRematchDeclineText:
+	text "I will keep"
+	line "practicing."
+	done
+
+FranklinRematchBeatenText:
+	text "The signal"
+	line "broke…"
+	done
+
+DorisRematchOfferText:
+	text "I hear thoughts"
+	line "more clearly"
+	line "now."
+
+	para "Yours say you"
+	line "want a battle."
+	cont "Well?"
+	done
+
+DorisRematchAcceptText:
+	text "Loud and clear."
+	done
+
+DorisRematchDeclineText:
+	text "Quieter than I"
+	line "expected."
+	done
+
+DorisRematchBeatenText:
+	text "I didn't hear"
+	line "that loss coming…"
+	done
+
+JaredRematchOfferText:
+	text "SABRINA's lessons"
+	line "leave no room"
+	line "to coast."
+
+	para "I haven't."
+	line "Battle me."
+	done
+
+JaredRematchAcceptText:
+	text "Mind over matter."
+	done
+
+JaredRematchDeclineText:
+	text "The lesson"
+	line "continues."
+	done
+
+JaredRematchBeatenText:
+	text "She predicted"
+	line "this too…"
 	done
 
 SaffronGym_MapEvents:

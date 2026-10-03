@@ -3258,7 +3258,24 @@ wKenjiFightCount::   db ; unreferenced
 wParryFightCount::   db
 wErinFightCount::    db
 
-	ds 100
+; gym rematches
+wGymRematchFlags:: flag_array NUM_GYM_REMATCHES ; set once a trainer has been rematched today
+wGymRematchWins:: ds (NUM_GYM_REMATCHES + 1) / 2 ; 4 bits each, capped at MAX_GYM_REMATCH_WINS
+
+; scratch space for the rematch battle being set up
+wCurGymRematch:: db
+wGymRematchLevelDelta:: db
+wGymRematchPartyBank:: db
+wGymRematchPartyAddr:: dw
+wGymRematchParty:: ds GYM_REMATCH_PARTY_LENGTH
+
+; offer, accept, decline, and beaten text for the rematch being fought
+wGymRematchOfferText::   dw
+wGymRematchAcceptText::  dw
+wGymRematchDeclineText:: dw
+wGymRematchBeatenText::  dw
+
+	ds 1
 
 wEventFlags:: flag_array NUM_EVENTS
 

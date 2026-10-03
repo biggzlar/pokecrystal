@@ -16,6 +16,7 @@ CianwoodGym_MapScripts:
 
 CianwoodGymChuckScript:
 	faceplayer
+	gym_rematch REMATCH_CHUCK, ChuckRematchOfferText, ChuckRematchAcceptText, ChuckRematchDeclineText, ChuckRematchBeatenText
 	opentext
 	checkevent EVENT_BEAT_CHUCK
 	iftrue .FightDone
@@ -89,6 +90,7 @@ TrainerBlackbeltYoshi:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_YOSHI, YoshiRematchOfferText, YoshiRematchAcceptText, YoshiRematchDeclineText, YoshiRematchBeatenText
 	opentext
 	writetext BlackbeltYoshiAfterText
 	waitbutton
@@ -100,6 +102,7 @@ TrainerBlackbeltLao:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_LAO, LaoRematchOfferText, LaoRematchAcceptText, LaoRematchDeclineText, LaoRematchBeatenText
 	opentext
 	writetext BlackbeltLaoAfterText
 	waitbutton
@@ -111,6 +114,7 @@ TrainerBlackbeltNob:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_NOB, NobRematchOfferText, NobRematchAcceptText, NobRematchDeclineText, NobRematchBeatenText
 	opentext
 	writetext BlackbeltNobAfterText
 	waitbutton
@@ -122,6 +126,7 @@ TrainerBlackbeltLung:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_LUNG, LungRematchOfferText, LungRematchAcceptText, LungRematchDeclineText, LungRematchBeatenText
 	opentext
 	writetext BlackbeltLungAfterText
 	waitbutton
@@ -301,6 +306,121 @@ BlackbeltLungAfterText:
 	text "My #MON lost…"
 	line "My… my pride is"
 	cont "shattered…"
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+ChuckRematchOfferText:
+	text "I have not missed"
+	line "a day of"
+	line "training!"
+
+	para "My fists are"
+	line "ready. Yours?"
+	done
+
+ChuckRematchAcceptText:
+	text "Hooah! Come at"
+	line "me!"
+	done
+
+ChuckRematchDeclineText:
+	text "Rest is part of"
+	line "training too."
+	done
+
+ChuckRematchBeatenText:
+	text "More squats!"
+	line "Right now!"
+	done
+
+YoshiRematchOfferText:
+	text "A blackbelt who"
+	line "stops training"
+	line "goes soft."
+
+	para "I haven't."
+	line "Fight me."
+	done
+
+YoshiRematchAcceptText:
+	text "Focus!"
+	done
+
+YoshiRematchDeclineText:
+	text "I'll be at the"
+	line "mat."
+	done
+
+YoshiRematchBeatenText:
+	text "Still too slow…"
+	done
+
+LaoRematchOfferText:
+	text "CHUCK's drills"
+	line "have been brutal."
+
+	para "See if you can"
+	line "take what I"
+	cont "learned."
+	done
+
+LaoRematchAcceptText:
+	text "No mercy!"
+	done
+
+LaoRematchDeclineText:
+	text "The dojo is"
+	line "open."
+	done
+
+LaoRematchBeatenText:
+	text "CHUCK will make"
+	line "me run laps…"
+	done
+
+NobRematchOfferText:
+	text "Strength is a"
+	line "habit."
+
+	para "Mine's improved."
+	line "Test it?"
+	done
+
+NobRematchAcceptText:
+	text "Stand firm!"
+	done
+
+NobRematchDeclineText:
+	text "Habits can wait."
+	done
+
+NobRematchBeatenText:
+	text "Habit wasn't"
+	line "enough…"
+	done
+
+LungRematchOfferText:
+	text "I train until my"
+	line "knuckles ache."
+
+	para "They're aching"
+	line "now. Battle?"
+	done
+
+LungRematchAcceptText:
+	text "Good. Begin!"
+	done
+
+LungRematchDeclineText:
+	text "Then I keep"
+	line "hitting stone."
+	done
+
+LungRematchBeatenText:
+	text "The ache was"
+	line "for nothing…"
 	done
 
 CianwoodGym_MapEvents:

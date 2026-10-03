@@ -9,6 +9,7 @@ OlivineGym_MapScripts:
 
 OlivineGymJasmineScript:
 	faceplayer
+	gym_rematch REMATCH_JASMINE, JasmineRematchOfferText, JasmineRematchAcceptText, JasmineRematchDeclineText, JasmineRematchBeatenText
 	opentext
 	checkevent EVENT_BEAT_JASMINE
 	iftrue .FightDone
@@ -193,6 +194,36 @@ OlivineGymGuidePreText:
 	para "A strong trainer"
 	line "has to be compas-"
 	cont "sionate."
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+JasmineRematchOfferText:
+	text "The lighthouse"
+	line "is calm again."
+
+	para "My steel #MON"
+	line "have hardened"
+	cont "with me."
+
+	para "Would you battle?"
+	done
+
+JasmineRematchAcceptText:
+	text "Then… please"
+	line "give it your"
+	line "all."
+	done
+
+JasmineRematchDeclineText:
+	text "I understand."
+	line "Another day."
+	done
+
+JasmineRematchBeatenText:
+	text "Still not strong"
+	line "enough to shine…"
 	done
 
 OlivineGym_MapEvents:

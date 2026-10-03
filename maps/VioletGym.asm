@@ -11,6 +11,7 @@ VioletGym_MapScripts:
 
 VioletGymFalknerScript:
 	faceplayer
+	gym_rematch REMATCH_FALKNER, FalknerRematchOfferText, FalknerRematchAcceptText, FalknerRematchDeclineText, FalknerRematchBeatenText
 	opentext
 	checkevent EVENT_BEAT_FALKNER
 	iftrue .FightDone
@@ -69,6 +70,7 @@ TrainerBirdKeeperRod:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_ROD, RodRematchOfferText, RodRematchAcceptText, RodRematchDeclineText, RodRematchBeatenText
 	opentext
 	writetext BirdKeeperRodAfterBattleText
 	waitbutton
@@ -80,6 +82,7 @@ TrainerBirdKeeperAbe:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_ABE, AbeRematchOfferText, AbeRematchAcceptText, AbeRematchDeclineText, AbeRematchBeatenText
 	opentext
 	writetext BirdKeeperAbeAfterBattleText
 	waitbutton
@@ -277,6 +280,75 @@ VioletGymGuideWinText:
 
 	para "be the CHAMP in no"
 	line "time at all!"
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+FalknerRematchOfferText:
+	text "The wind is"
+	line "stronger today."
+
+	para "Ready to see how"
+	line "my birds have"
+	cont "grown?"
+	done
+
+FalknerRematchAcceptText:
+	text "Into the clouds,"
+	line "try to keep up!"
+	done
+
+FalknerRematchDeclineText:
+	text "The sky will wait."
+	done
+
+FalknerRematchBeatenText:
+	text "Still short of"
+	line "the sky…"
+	done
+
+RodRematchOfferText:
+	text "Guts don't fade"
+	line "overnight!"
+
+	para "I've been at this"
+	line "since you beat me."
+	cont "Again?"
+	done
+
+RodRematchAcceptText:
+	text "That's the spirit!"
+	line "Come on!"
+	done
+
+RodRematchDeclineText:
+	text "Guts can wait."
+	done
+
+RodRematchBeatenText:
+	text "Gaaah! Not again!"
+	done
+
+AbeRematchOfferText:
+	text "Think you're still"
+	line "ready for FALKNER?"
+
+	para "Prove it to me"
+	line "first!"
+	done
+
+AbeRematchAcceptText:
+	text "Let's see it!"
+	done
+
+AbeRematchDeclineText:
+	text "Come back ready."
+	done
+
+AbeRematchBeatenText:
+	text "This still can't"
+	line "be true!"
 	done
 
 VioletGym_MapEvents:

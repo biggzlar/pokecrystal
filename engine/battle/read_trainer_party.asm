@@ -27,6 +27,9 @@ ReadTrainerParty:
 	ld a, [wOtherTrainerClass]
 .not_cal2
 
+	call GetGymRematchParty
+	jr c, .got_party_type
+
 	dec a
 	ld c, a
 	ld b, 0
@@ -54,6 +57,7 @@ ReadTrainerParty:
 	cp '@'
 	jr nz, .skip_name
 
+.got_party_type
 	ld a, [hli]
 	ld c, a
 	ld b, 0
@@ -70,6 +74,8 @@ ReadTrainerParty:
 	jp hl
 
 .done
+	xor a
+	ld [wGymRematchLevelDelta], a
 	jp ComputeTrainerReward
 
 .cal2
@@ -79,6 +85,123 @@ ReadTrainerParty:
 	call TrainerType2
 	call CloseSRAM
 	jr .done
+
+GetGymRematchParty:
+; Copies the party prepared by SetUpGymRematch into wGymRematchParty and returns
+; carry with hl pointing at its type byte. The setup is consumed either way, so
+; an ordinary battle can never inherit it.
+	push af
+	ld a, [wGymRematchPartyAddr]
+	ld l, a
+	ld a, [wGymRematchPartyAddr + 1]
+	ld h, a
+	or l
+	jr z, .no_party
+
+	xor a
+	ld [wGymRematchPartyAddr], a
+	ld [wGymRematchPartyAddr + 1], a
+
+	ld de, wGymRematchParty
+	ld c, GYM_REMATCH_PARTY_LENGTH
+.loop
+	ld a, [wGymRematchPartyBank]
+	call GetFarByte
+	ld [de], a
+	inc de
+	inc hl
+	cp -1
+	jr z, .copied
+	dec c
+	jr nz, .loop
+.copied
+	pop af
+	ld hl, wGymRematchParty
+	scf
+	ret
+
+.no_party
+	pop af
+	and a
+	ret
+
+GymCrewRematch:
+; Returns carry if the party being read is a scaled gym-crew rematch.
+	ld a, [wGymRematchLevelDelta]
+	and a
+	ret z
+	push hl
+	farcall GymRematch_IsCrew
+	pop hl
+	ret
+
+EvolveGymCrewSpecies:
+; If this is a scaled gym-crew rematch, replace wCurPartySpecies with the
+; form it reaches by level. Stone, trade, and happiness evolutions stop there.
+	call GymCrewRematch
+	ret nc
+	ld c, 3
+.next_form
+	push bc
+	push hl
+	ld a, [wCurPartySpecies]
+	dec a
+	ld c, a
+	ld b, 0
+	ld hl, EvosAttacksPointers
+	add hl, bc
+	add hl, bc
+	ld a, BANK(EvosAttacksPointers)
+	call GetFarWord
+.method
+	ld a, BANK("Evolutions and Attacks")
+	call GetFarByte
+	and a
+	jr z, .stop
+	inc hl
+	cp EVOLVE_LEVEL
+	jr nz, .skip
+	ld a, BANK("Evolutions and Attacks")
+	call GetFarByte
+	ld b, a
+	inc hl
+	ld a, [wCurPartyLevel]
+	cp b
+	jr c, .not_yet
+	ld a, BANK("Evolutions and Attacks")
+	call GetFarByte
+	ld [wCurPartySpecies], a
+	pop hl
+	pop bc
+	dec c
+	jr nz, .next_form
+	ret
+
+.not_yet
+	inc hl
+	jr .method
+
+.skip
+	inc hl
+	inc hl
+	jr .method
+
+.stop
+	pop hl
+	pop bc
+	ret
+
+ScaleGymRematchLevel:
+; Raises the level in a to the tier the current rematch is being fought at.
+	ld b, a
+	ld a, [wGymRematchLevelDelta]
+	add b
+	jr c, .too_high
+	cp MAX_LEVEL + 1
+	ret c
+.too_high
+	ld a, MAX_LEVEL
+	ret
 
 TrainerTypes:
 ; entries correspond to TRAINERTYPE_* constants
@@ -98,9 +221,11 @@ TrainerType1:
 	cp $ff
 	ret z
 
+	call ScaleGymRematchLevel
 	ld [wCurPartyLevel], a
 	ld a, [hli]
 	ld [wCurPartySpecies], a
+	call EvolveGymCrewSpecies
 	ld a, OTPARTYMON
 	ld [wMonType], a
 	push hl
@@ -117,9 +242,11 @@ TrainerType2:
 	cp $ff
 	ret z
 
+	call ScaleGymRematchLevel
 	ld [wCurPartyLevel], a
 	ld a, [hli]
 	ld [wCurPartySpecies], a
+	call EvolveGymCrewSpecies
 	ld a, OTPARTYMON
 	ld [wMonType], a
 
@@ -134,6 +261,20 @@ TrainerType2:
 	ld e, l
 	pop hl
 
+	; crew rematches learn by level, including after they evolve
+	call GymCrewRematch
+	jr c, .keep_level_moves
+	ld a, [hl]
+	and a
+	jr nz, .got_moves
+
+	; no moves listed: keep the moveset the mon learnt by level
+.keep_level_moves
+	ld bc, NUM_MOVES
+	add hl, bc
+	jr .loop
+
+.got_moves
 	ld b, NUM_MOVES
 .copy_moves
 	ld a, [hli]
@@ -193,9 +334,11 @@ TrainerType3:
 	cp $ff
 	ret z
 
+	call ScaleGymRematchLevel
 	ld [wCurPartyLevel], a
 	ld a, [hli]
 	ld [wCurPartySpecies], a
+	call EvolveGymCrewSpecies
 	ld a, OTPARTYMON
 	ld [wMonType], a
 	push hl
@@ -221,9 +364,11 @@ TrainerType4:
 	cp $ff
 	ret z
 
+	call ScaleGymRematchLevel
 	ld [wCurPartyLevel], a
 	ld a, [hli]
 	ld [wCurPartySpecies], a
+	call EvolveGymCrewSpecies
 
 	ld a, OTPARTYMON
 	ld [wMonType], a
@@ -252,6 +397,20 @@ TrainerType4:
 	ld e, l
 	pop hl
 
+	; crew rematches learn by level, including after they evolve
+	call GymCrewRematch
+	jr c, .keep_level_moves
+	ld a, [hl]
+	and a
+	jr nz, .got_moves
+
+	; no moves listed: keep the moveset the mon learnt by level
+.keep_level_moves
+	ld bc, NUM_MOVES
+	add hl, bc
+	jr .loop
+
+.got_moves
 	ld b, NUM_MOVES
 .copy_moves
 	ld a, [hli]
@@ -301,7 +460,7 @@ TrainerType4:
 .copied_pp
 
 	pop hl
-	jr .loop
+	jp .loop
 
 ComputeTrainerReward:
 	ld hl, hProduct

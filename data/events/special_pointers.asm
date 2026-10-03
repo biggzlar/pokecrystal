@@ -182,4 +182,9 @@ SpecialsPointers::
 
 	add_special InitialSetDSTFlag
 	add_special InitialClearDSTFlag
+
+; Gym rematches
+	add_special CheckGymRematch
+	add_special SetUpGymRematch
+	add_special FinishGymRematch
 	add_special UnusedDummySpecial ; unused

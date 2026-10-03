@@ -42,6 +42,7 @@ FuchsiaGymJanineScript:
 	sjump .AfterBattle
 .FightDone:
 	faceplayer
+	gym_rematch REMATCH_JANINE, JanineRematchOfferText, JanineRematchAcceptText, JanineRematchDeclineText, JanineRematchBeatenText
 	opentext
 .AfterBattle:
 	checkevent EVENT_GOT_TM06_TOXIC
@@ -66,6 +67,7 @@ LassAliceScript:
 	special LoadUsedSpritesGFX
 .AliceUnmasked:
 	faceplayer
+	gym_rematch REMATCH_ALICE, AliceRematchOfferText, AliceRematchAcceptText, AliceRematchDeclineText, AliceRematchBeatenText
 	opentext
 	checkevent EVENT_BEAT_LASS_ALICE
 	iftrue .AliceAfterScript
@@ -100,6 +102,7 @@ LassLindaScript:
 	special LoadUsedSpritesGFX
 .LindaUnmasked:
 	faceplayer
+	gym_rematch REMATCH_LINDA, LindaRematchOfferText, LindaRematchAcceptText, LindaRematchDeclineText, LindaRematchBeatenText
 	opentext
 	checkevent EVENT_BEAT_LASS_LINDA
 	iftrue .LindaAfterScript
@@ -134,6 +137,7 @@ PicnickerCindyScript:
 	special LoadUsedSpritesGFX
 .CindyUnmasked:
 	faceplayer
+	gym_rematch REMATCH_CINDY, CindyRematchOfferText, CindyRematchAcceptText, CindyRematchDeclineText, CindyRematchBeatenText
 	opentext
 	checkevent EVENT_BEAT_PICNICKER_CINDY
 	iftrue .CindyAfterScript
@@ -168,6 +172,7 @@ CamperBarryScript:
 	special LoadUsedSpritesGFX
 .BarryUnmasked:
 	faceplayer
+	gym_rematch REMATCH_BARRY, BarryRematchOfferText, BarryRematchAcceptText, BarryRematchDeclineText, BarryRematchBeatenText
 	opentext
 	checkevent EVENT_BEAT_CAMPER_BARRY
 	iftrue .BarryAfterScript
@@ -376,6 +381,124 @@ FuchsiaGymGuideWinText:
 	text "That was a great"
 	line "battle, trainer"
 	cont "from JOHTO!"
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+JanineRematchOfferText:
+	text "A ninja who"
+	line "repeats a loss"
+	line "is sloppy."
+
+	para "My poisons are"
+	line "sharper."
+	cont "Again?"
+	done
+
+JanineRematchAcceptText:
+	text "You won't see"
+	line "it coming."
+	done
+
+JanineRematchDeclineText:
+	text "Vanish, then."
+	done
+
+JanineRematchBeatenText:
+	text "Seen through…"
+	line "again."
+	done
+
+AliceRematchOfferText:
+	text "Hehe. Think you"
+	line "know who's under"
+	line "this?"
+
+	para "Battle me and"
+	line "find out…"
+	cont "again."
+	done
+
+AliceRematchAcceptText:
+	text "Too slow!"
+	done
+
+AliceRematchDeclineText:
+	text "The disguise"
+	line "stays on."
+	done
+
+AliceRematchBeatenText:
+	text "The mask slips…"
+	done
+
+LindaRematchOfferText:
+	text "Same smile."
+	line "Different toxins."
+
+	para "I've refined"
+	line "them."
+	cont "Careful?"
+	done
+
+LindaRematchAcceptText:
+	text "Don't breathe"
+	line "in."
+	done
+
+LindaRematchDeclineText:
+	text "Wise, maybe."
+	done
+
+LindaRematchBeatenText:
+	text "The dose was"
+	line "too kind…"
+	done
+
+CindyRematchOfferText:
+	text "I look harmless."
+	line "That's the point."
+
+	para "My #MON aren't."
+	line "Rematch?"
+	done
+
+CindyRematchAcceptText:
+	text "Surprise!"
+	done
+
+CindyRematchDeclineText:
+	text "I'll look"
+	line "harmless here."
+	done
+
+CindyRematchBeatenText:
+	text "Harmless and"
+	line "beaten…"
+	done
+
+BarryRematchOfferText:
+	text "Camped in a poison"
+	line "gym on purpose."
+
+	para "Built a tolerance."
+	line "And a team."
+	cont "Fight?"
+	done
+
+BarryRematchAcceptText:
+	text "Masks on!"
+	done
+
+BarryRematchDeclineText:
+	text "I'll air out"
+	line "the tent."
+	done
+
+BarryRematchBeatenText:
+	text "Tolerance wasn't"
+	line "the problem…"
 	done
 
 FuchsiaGym_MapEvents:

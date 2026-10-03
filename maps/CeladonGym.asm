@@ -13,6 +13,7 @@ CeladonGym_MapScripts:
 
 CeladonGymErikaScript:
 	faceplayer
+	gym_rematch REMATCH_ERIKA, ErikaRematchOfferText, ErikaRematchAcceptText, ErikaRematchDeclineText, ErikaRematchBeatenText
 	opentext
 	checkflag ENGINE_RAINBOWBADGE
 	iftrue .FightDone
@@ -52,6 +53,7 @@ TrainerLassMichelle:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_MICHELLE, MichelleRematchOfferText, MichelleRematchAcceptText, MichelleRematchDeclineText, MichelleRematchBeatenText
 	opentext
 	writetext LassMichelleAfterBattleText
 	waitbutton
@@ -63,6 +65,7 @@ TrainerPicnickerTanya:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_TANYA, TanyaRematchOfferText, TanyaRematchAcceptText, TanyaRematchDeclineText, TanyaRematchBeatenText
 	opentext
 	writetext PicnickerTanyaAfterBattleText
 	waitbutton
@@ -74,6 +77,7 @@ TrainerBeautyJulia:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_JULIA, JuliaRematchOfferText, JuliaRematchAcceptText, JuliaRematchDeclineText, JuliaRematchBeatenText
 	opentext
 	writetext BeautyJuliaAfterBattleText
 	waitbutton
@@ -85,6 +89,7 @@ TrainerTwinsJoAndZoe1:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_JOANDZOE1, JoAndZoe1RematchOfferText, JoAndZoe1RematchAcceptText, JoAndZoe1RematchDeclineText, JoAndZoe1RematchBeatenText
 	opentext
 	writetext TwinsJoAndZoe1AfterBattleText
 	waitbutton
@@ -96,6 +101,7 @@ TrainerTwinsJoAndZoe2:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_JOANDZOE2, JoAndZoe2RematchOfferText, JoAndZoe2RematchAcceptText, JoAndZoe2RematchDeclineText, JoAndZoe2RematchBeatenText
 	opentext
 	writetext TwinsJoAndZoe2AfterBattleText
 	waitbutton
@@ -263,6 +269,148 @@ TwinsJoAndZoe2BeatenText:
 TwinsJoAndZoe2AfterBattleText:
 	text "ERIKA is much,"
 	line "much stronger!"
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+ErikaRematchOfferText:
+	text "The flowers bloom"
+	line "on their own"
+	line "time."
+
+	para "Mine have opened"
+	line "a little more."
+	cont "Will you stay?"
+	done
+
+ErikaRematchAcceptText:
+	text "Then breathe"
+	line "in…"
+	done
+
+ErikaRematchDeclineText:
+	text "The scent will"
+	line "linger."
+	done
+
+ErikaRematchBeatenText:
+	text "Even a full"
+	line "bloom can wilt…"
+	done
+
+MichelleRematchOfferText:
+	text "I talk to the"
+	line "plants every"
+	line "morning."
+
+	para "They've perked"
+	line "up. See?"
+	done
+
+MichelleRematchAcceptText:
+	text "Grow for me!"
+	done
+
+MichelleRematchDeclineText:
+	text "We'll sunbathe"
+	line "over here."
+	done
+
+MichelleRematchBeatenText:
+	text "They drooped"
+	line "again…"
+	done
+
+TanyaRematchOfferText:
+	text "Picnics are"
+	line "better after"
+	line "a win."
+
+	para "I still owe"
+	line "you one."
+	cont "Battle?"
+	done
+
+TanyaRematchAcceptText:
+	text "Sandwiches later!"
+	done
+
+TanyaRematchDeclineText:
+	text "I'll save you"
+	line "a bite."
+	done
+
+TanyaRematchBeatenText:
+	text "There go the"
+	line "sandwiches…"
+	done
+
+JuliaRematchOfferText:
+	text "Petals and poise."
+	line "I've practiced"
+	line "both."
+
+	para "A rematch, if"
+	line "you please."
+	done
+
+JuliaRematchAcceptText:
+	text "Softly, now."
+	done
+
+JuliaRematchDeclineText:
+	text "I can wait"
+	line "among the pots."
+	done
+
+JuliaRematchBeatenText:
+	text "The arrangement"
+	line "fell apart…"
+	done
+
+JoAndZoe1RematchOfferText:
+	text "JO: ZOE and I"
+	line "switched our"
+	line "lead."
+
+	para "It might fool"
+	line "you. Try us?"
+	done
+
+JoAndZoe1RematchAcceptText:
+	text "JO: Our turn!"
+	done
+
+JoAndZoe1RematchDeclineText:
+	text "JO: We'll swap"
+	line "again later."
+	done
+
+JoAndZoe1RematchBeatenText:
+	text "JO: The switch"
+	line "didn't help…"
+	done
+
+JoAndZoe2RematchOfferText:
+	text "ZOE: JO talks"
+	line "big."
+
+	para "I'm the one who"
+	line "trained. Ready?"
+	done
+
+JoAndZoe2RematchAcceptText:
+	text "ZOE: Follow me!"
+	done
+
+JoAndZoe2RematchDeclineText:
+	text "ZOE: Typical."
+	done
+
+JoAndZoe2RematchBeatenText:
+	text "ZOE: Next time"
+	line "I pick the lead…"
 	done
 
 CeladonGym_MapEvents:

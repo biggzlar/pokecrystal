@@ -10,6 +10,7 @@ PewterGym_MapScripts:
 
 PewterGymBrockScript:
 	faceplayer
+	gym_rematch REMATCH_BROCK, BrockRematchOfferText, BrockRematchAcceptText, BrockRematchDeclineText, BrockRematchBeatenText
 	opentext
 	checkflag ENGINE_BOULDERBADGE
 	iftrue .FightDone
@@ -43,6 +44,7 @@ TrainerCamperJerry:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_JERRY, JerryRematchOfferText, JerryRematchAcceptText, JerryRematchDeclineText, JerryRematchBeatenText
 	opentext
 	writetext CamperJerryAfterBattleText
 	waitbutton
@@ -204,6 +206,57 @@ PewterGymGuideWinText:
 
 	para "inspiring. I mean"
 	line "that seriously."
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+BrockRematchOfferText:
+	text "Rock-hard defense"
+	line "takes years."
+
+	para "I've put in"
+	line "more of them."
+	cont "Care to test it?"
+	done
+
+BrockRematchAcceptText:
+	text "Then break"
+	line "through!"
+	done
+
+BrockRematchDeclineText:
+	text "The stone isn't"
+	line "going anywhere."
+	done
+
+BrockRematchBeatenText:
+	text "Cracked clean"
+	line "through again…"
+	done
+
+JerryRematchOfferText:
+	text "Camping out here"
+	line "built up my"
+	line "team."
+
+	para "They're restless."
+	line "Battle?"
+	done
+
+JerryRematchAcceptText:
+	text "Tents down!"
+	line "Let's go!"
+	done
+
+JerryRematchDeclineText:
+	text "The fire can"
+	line "wait."
+	done
+
+JerryRematchBeatenText:
+	text "Back to cooking"
+	line "dinner…"
 	done
 
 PewterGym_MapEvents:

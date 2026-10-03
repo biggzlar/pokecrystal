@@ -61,6 +61,7 @@ TrainerCooltrainermCody:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_CODY, CodyRematchOfferText, CodyRematchAcceptText, CodyRematchDeclineText, CodyRematchBeatenText
 	opentext
 	writetext CooltrainermCodyAfterBattleText
 	waitbutton
@@ -72,6 +73,7 @@ TrainerCooltrainerfFran:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_FRAN, FranRematchOfferText, FranRematchAcceptText, FranRematchDeclineText, FranRematchBeatenText
 	opentext
 	writetext CooltrainerfFranAfterBattleText
 	waitbutton
@@ -121,6 +123,55 @@ CooltrainerfFranAfterBattleText:
 BlackthornGym2FBoulderFellText:
 	text "The boulder fell"
 	line "through!"
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+CodyRematchOfferText:
+	text "The upper floor"
+	line "is where we"
+	line "sharpen up."
+
+	para "I've had time."
+	line "Battle?"
+	done
+
+CodyRematchAcceptText:
+	text "Don't slip up!"
+	done
+
+CodyRematchDeclineText:
+	text "The stairs will"
+	line "keep."
+	done
+
+CodyRematchBeatenText:
+	text "Back down a"
+	line "notch…"
+	done
+
+FranRematchOfferText:
+	text "I study dragon"
+	line "movement between"
+	line "shifts."
+
+	para "Want to see the"
+	line "difference?"
+	done
+
+FranRematchAcceptText:
+	text "Watch closely."
+	done
+
+FranRematchDeclineText:
+	text "I'll keep"
+	line "studying."
+	done
+
+FranRematchBeatenText:
+	text "The theory was"
+	line "sound…"
 	done
 
 BlackthornGym2F_MapEvents:

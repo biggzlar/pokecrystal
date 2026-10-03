@@ -21,6 +21,7 @@ GoldenrodGymNoop2Scene:
 
 GoldenrodGymWhitneyScript:
 	faceplayer
+	gym_rematch REMATCH_WHITNEY, WhitneyRematchOfferText, WhitneyRematchAcceptText, WhitneyRematchDeclineText, WhitneyRematchBeatenText
 	checkevent EVENT_BEAT_WHITNEY
 	iftrue .FightDone
 	opentext
@@ -95,6 +96,7 @@ TrainerLassCarrie:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_CARRIE, CarrieRematchOfferText, CarrieRematchAcceptText, CarrieRematchDeclineText, CarrieRematchBeatenText
 	opentext
 	writetext LassCarrieAfterBattleText
 	waitbutton
@@ -119,6 +121,7 @@ TrainerLassBridget:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_BRIDGET, BridgetRematchOfferText, BridgetRematchAcceptText, BridgetRematchDeclineText, BridgetRematchBeatenText
 	opentext
 	writetext LassBridgetAfterBattleText
 	waitbutton
@@ -130,6 +133,7 @@ TrainerBeautyVictoria:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_VICTORIA, VictoriaRematchOfferText, VictoriaRematchAcceptText, VictoriaRematchDeclineText, VictoriaRematchBeatenText
 	opentext
 	writetext BeautyVictoriaAfterBattleText
 	waitbutton
@@ -141,6 +145,7 @@ TrainerBeautySamantha:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_SAMANTHA, SamanthaRematchOfferText, SamanthaRematchAcceptText, SamanthaRematchDeclineText, SamanthaRematchBeatenText
 	opentext
 	writetext BeautySamanthaAfterBattleText
 	waitbutton
@@ -375,6 +380,125 @@ GoldenrodGymGuideWinText:
 	text "You won? Great! I"
 	line "was busy admiring"
 	cont "the ladies here."
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+WhitneyRematchOfferText:
+	text "You're not making"
+	line "me cry this"
+	line "time!"
+
+	para "MILTANK and I"
+	line "have been"
+	cont "practicing!"
+	done
+
+WhitneyRematchAcceptText:
+	text "Okay! No holding"
+	line "back!"
+	done
+
+WhitneyRematchDeclineText:
+	text "Hmph! Whatever!"
+	done
+
+WhitneyRematchBeatenText:
+	text "Waaah! I still"
+	line "can't beat you!"
+	done
+
+CarrieRematchOfferText:
+	text "Cute doesn't mean"
+	line "weak, you know."
+
+	para "My #MON want"
+	line "another try."
+	done
+
+CarrieRematchAcceptText:
+	text "Be gentle… or"
+	line "don't!"
+	done
+
+CarrieRematchDeclineText:
+	text "We'll look cute"
+	line "over here."
+	done
+
+CarrieRematchBeatenText:
+	text "Still cute."
+	line "Still losing."
+	done
+
+BridgetRematchOfferText:
+	text "I only raise the"
+	line "most adorable"
+	line "#MON."
+
+	para "They've grown."
+	line "Battle us?"
+	done
+
+BridgetRematchAcceptText:
+	text "Do your best,"
+	line "sweeties!"
+	done
+
+BridgetRematchDeclineText:
+	text "Another time,"
+	line "then."
+	done
+
+BridgetRematchBeatenText:
+	text "Even adorable"
+	line "ones lose…"
+	done
+
+VictoriaRematchOfferText:
+	text "A true beauty"
+	line "keeps improving."
+
+	para "I've trained."
+	line "Shall we?"
+	done
+
+VictoriaRematchAcceptText:
+	text "Elegantly, now."
+	done
+
+VictoriaRematchDeclineText:
+	text "Beauty can wait."
+	done
+
+VictoriaRematchBeatenText:
+	text "How unbecoming"
+	line "of me…"
+	done
+
+SamanthaRematchOfferText:
+	text "SNUBBULL has a"
+	line "new trick."
+
+	para "Want to be the"
+	line "first to see"
+	cont "it?"
+	done
+
+SamanthaRematchAcceptText:
+	text "SNUBBULL, show"
+	line "off!"
+	done
+
+SamanthaRematchDeclineText:
+	text "Your loss. It's"
+	line "darling."
+	done
+
+SamanthaRematchBeatenText:
+	text "Even that trick"
+	line "wasn't enough…"
 	done
 
 GoldenrodGym_MapEvents:

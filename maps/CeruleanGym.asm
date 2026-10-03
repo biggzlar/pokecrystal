@@ -58,6 +58,7 @@ CeruleanGymGruntRunsOutScript:
 
 CeruleanGymMistyScript:
 	faceplayer
+	gym_rematch REMATCH_MISTY, MistyRematchOfferText, MistyRematchAcceptText, MistyRematchDeclineText, MistyRematchBeatenText
 	opentext
 	checkflag ENGINE_CASCADEBADGE
 	iftrue .FightDone
@@ -88,6 +89,7 @@ TrainerSwimmerfDiana:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_DIANA, DianaRematchOfferText, DianaRematchAcceptText, DianaRematchDeclineText, DianaRematchBeatenText
 	opentext
 	writetext SwimmerfDianaAfterBattleText
 	waitbutton
@@ -99,6 +101,7 @@ TrainerSwimmerfBriana:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_BRIANA, BrianaRematchOfferText, BrianaRematchAcceptText, BrianaRematchDeclineText, BrianaRematchBeatenText
 	opentext
 	writetext SwimmerfBrianaAfterBattleText
 	waitbutton
@@ -110,6 +113,7 @@ TrainerSwimmermParker:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_PARKER, ParkerRematchOfferText, ParkerRematchAcceptText, ParkerRematchDeclineText, ParkerRematchBeatenText
 	opentext
 	writetext SwimmermParkerAfterBattleText
 	waitbutton
@@ -358,6 +362,101 @@ CeruleanGymGuideWinText:
 	para "As always, that"
 	line "was one heck of a"
 	cont "great battle!"
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+MistyRematchOfferText:
+	text "I've been timing"
+	line "my dives again."
+
+	para "The water's"
+	line "rougher now."
+	cont "Dive in?"
+	done
+
+MistyRematchAcceptText:
+	text "Don't swallow"
+	line "any!"
+	done
+
+MistyRematchDeclineText:
+	text "The pool will"
+	line "be here."
+	done
+
+MistyRematchBeatenText:
+	text "Soaked, and I"
+	line "still lost…"
+	done
+
+DianaRematchOfferText:
+	text "Laps at dawn."
+	line "Every day."
+
+	para "I'm faster in"
+	line "the water now."
+	cont "Swim with me?"
+	done
+
+DianaRematchAcceptText:
+	text "Deep end!"
+	done
+
+DianaRematchDeclineText:
+	text "I'll finish my"
+	line "laps."
+	done
+
+DianaRematchBeatenText:
+	text "Touched the"
+	line "wall second…"
+	done
+
+BrianaRematchOfferText:
+	text "MISTY drilled us"
+	line "until we dropped."
+
+	para "I didn't drop."
+	line "Your turn?"
+	done
+
+BrianaRematchAcceptText:
+	text "No floaties!"
+	done
+
+BrianaRematchDeclineText:
+	text "The drill"
+	line "continues."
+	done
+
+BrianaRematchBeatenText:
+	text "She'll add more"
+	line "laps…"
+	done
+
+ParkerRematchOfferText:
+	text "Holding my breath"
+	line "got easier."
+
+	para "My #MON hold"
+	line "theirs longer"
+	cont "too. Battle?"
+	done
+
+ParkerRematchAcceptText:
+	text "Under we go!"
+	done
+
+ParkerRematchDeclineText:
+	text "I'll stay under"
+	line "a bit."
+	done
+
+ParkerRematchBeatenText:
+	text "Out of air"
+	line "again…"
 	done
 
 CeruleanGym_MapEvents:

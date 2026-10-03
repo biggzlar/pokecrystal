@@ -13,6 +13,18 @@ MACRO farscall
 	dba \1
 ENDM
 
+MACRO gym_rematch
+; \1: REMATCH_* id
+; \2: offer text
+; \3: accept text
+; \4: decline text
+; \5: beaten text
+; The text pointers are arguments to GymRematchScript, read from this map's bank.
+	setval \1
+	farscall GymRematchScript
+	dw \2, \3, \4, \5
+ENDM
+
 	const memcall_command ; $02
 MACRO memcall
 	db memcall_command

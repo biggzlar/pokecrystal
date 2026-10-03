@@ -14,6 +14,7 @@ AzaleaGym_MapScripts:
 
 AzaleaGymBugsyScript:
 	faceplayer
+	gym_rematch REMATCH_BUGSY, BugsyRematchOfferText, BugsyRematchAcceptText, BugsyRematchDeclineText, BugsyRematchBeatenText
 	opentext
 	checkevent EVENT_BEAT_BUGSY
 	iftrue .FightDone
@@ -72,6 +73,7 @@ TrainerTwinsAmyandmay1:
 
 .AfterScript:
 	endifjustbattled
+	gym_rematch REMATCH_AMYANDMAY1, AmyAndMay1RematchOfferText, AmyAndMay1RematchAcceptText, AmyAndMay1RematchDeclineText, AmyAndMay1RematchBeatenText
 	opentext
 	writetext TwinsAmyandmay1AfterBattleText
 	waitbutton
@@ -83,6 +85,7 @@ TrainerTwinsAmyandmay2:
 
 .AfterScript:
 	endifjustbattled
+	gym_rematch REMATCH_AMYANDMAY2, AmyAndMay2RematchOfferText, AmyAndMay2RematchAcceptText, AmyAndMay2RematchDeclineText, AmyAndMay2RematchBeatenText
 	opentext
 	writetext TwinsAmyandmay2AfterBattleText
 	waitbutton
@@ -94,6 +97,7 @@ TrainerBugCatcherBenny:
 
 .AfterScript:
 	endifjustbattled
+	gym_rematch REMATCH_BENNY, BennyRematchOfferText, BennyRematchAcceptText, BennyRematchDeclineText, BennyRematchBeatenText
 	opentext
 	writetext BugCatcherBennyAfterBattleText
 	waitbutton
@@ -105,6 +109,7 @@ TrainerBugCatcherAl:
 
 .AfterScript:
 	endifjustbattled
+	gym_rematch REMATCH_AL, AlRematchOfferText, AlRematchAcceptText, AlRematchDeclineText, AlRematchBeatenText
 	opentext
 	writetext BugCatcherAlAfterBattleText
 	waitbutton
@@ -116,6 +121,7 @@ TrainerBugCatcherJosh:
 
 .AfterScript:
 	endifjustbattled
+	gym_rematch REMATCH_JOSH, JoshRematchOfferText, JoshRematchAcceptText, JoshRematchDeclineText, JoshRematchBeatenText
 	opentext
 	writetext BugCatcherJoshAfterBattleText
 	waitbutton
@@ -357,6 +363,148 @@ AzaleaGymGuideWinText:
 	para "With people like"
 	line "you, the future of"
 	cont "#MON is bright!"
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+BugsyRematchOfferText:
+	text "My bug research"
+	line "has come a long"
+	line "way."
+
+	para "Want to see the"
+	line "new data?"
+	done
+
+BugsyRematchAcceptText:
+	text "This is so"
+	line "exciting!"
+	done
+
+BugsyRematchDeclineText:
+	text "Back to my notes."
+	done
+
+BugsyRematchBeatenText:
+	text "Amazing! You're"
+	line "part of my notes"
+	cont "now!"
+	done
+
+AmyAndMay1RematchOfferText:
+	text "AMY: We've been"
+	line "training as a"
+	line "pair."
+
+	para "MAY and I want"
+	line "a rematch!"
+	done
+
+AmyAndMay1RematchAcceptText:
+	text "AMY: Together,"
+	line "now!"
+	done
+
+AmyAndMay1RematchDeclineText:
+	text "AMY: Aww, okay."
+	done
+
+AmyAndMay1RematchBeatenText:
+	text "AMY: We still"
+	line "lost together…"
+	done
+
+AmyAndMay2RematchOfferText:
+	text "MAY: Don't think"
+	line "one win means"
+	line "we're done."
+
+	para "AMY and I are"
+	line "ready. You?"
+	done
+
+AmyAndMay2RematchAcceptText:
+	text "MAY: Here we"
+	line "come!"
+	done
+
+AmyAndMay2RematchDeclineText:
+	text "MAY: Fine, later."
+	done
+
+AmyAndMay2RematchBeatenText:
+	text "MAY: Beaten as"
+	line "a pair again…"
+	done
+
+BennyRematchOfferText:
+	text "My bug net's been"
+	line "busy since then."
+
+	para "Care for another"
+	line "round?"
+	done
+
+BennyRematchAcceptText:
+	text "Bugs, don't fail"
+	line "me!"
+	done
+
+BennyRematchDeclineText:
+	text "The grass can"
+	line "wait."
+	done
+
+BennyRematchBeatenText:
+	text "They got away"
+	line "again!"
+	done
+
+AlRematchOfferText:
+	text "I found stronger"
+	line "bugs on the"
+	line "routes."
+
+	para "Want to see"
+	line "them?"
+	done
+
+AlRematchAcceptText:
+	text "Alright. Have"
+	line "a look."
+	done
+
+AlRematchDeclineText:
+	text "They'll still be"
+	line "here."
+	done
+
+AlRematchBeatenText:
+	text "Back to looking"
+	line "under rocks…"
+	done
+
+JoshRematchOfferText:
+	text "I want to be just"
+	line "like BUGSY."
+
+	para "Battle me and"
+	line "see if I'm"
+	cont "closer!"
+	done
+
+JoshRematchAcceptText:
+	text "Watch this!"
+	done
+
+JoshRematchDeclineText:
+	text "I'll keep at it."
+	done
+
+JoshRematchBeatenText:
+	text "BUGSY makes this"
+	line "look easy…"
 	done
 
 AzaleaGym_MapEvents:

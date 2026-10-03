@@ -9,6 +9,7 @@ ViridianGym_MapScripts:
 
 ViridianGymBlueScript:
 	faceplayer
+	gym_rematch REMATCH_BLUE, BlueRematchOfferText, BlueRematchAcceptText, BlueRematchDeclineText, BlueRematchBeatenText
 	opentext
 	checkflag ENGINE_EARTHBADGE
 	iftrue .FightDone
@@ -165,6 +166,33 @@ ViridianGymGuideWinText:
 
 	para "battle. It brought"
 	line "tears to my eyes."
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+BlueRematchOfferText:
+	text "Champ or not,"
+	line "I don't sit"
+	line "still."
+
+	para "My team's meaner."
+	line "You want the"
+	cont "belt back, or"
+	cont "what?"
+	done
+
+BlueRematchAcceptText:
+	text "Heh. Try me."
+	done
+
+BlueRematchDeclineText:
+	text "Yeah, I figured."
+	done
+
+BlueRematchBeatenText:
+	text "Tch. Still the"
+	line "best you've got?"
 	done
 
 ViridianGym_MapEvents:

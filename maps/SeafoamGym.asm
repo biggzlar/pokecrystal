@@ -13,6 +13,7 @@ SeafoamGymNoopScene:
 
 SeafoamGymBlaineScript:
 	faceplayer
+	gym_rematch REMATCH_BLAINE, BlaineRematchOfferText, BlaineRematchAcceptText, BlaineRematchDeclineText, BlaineRematchBeatenText
 	opentext
 	checkflag ENGINE_VOLCANOBADGE
 	iftrue .FightDone
@@ -153,6 +154,34 @@ SeafoamGymGuideWinText2:
 
 	para "There's no need"
 	line "for a building."
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+BlaineRematchOfferText:
+	text "The volcano's"
+	line "still lit, and"
+	line "so am I!"
+
+	para "Riddle me this:"
+	line "are you hotter"
+	cont "than last time?"
+	done
+
+BlaineRematchAcceptText:
+	text "Then feel the"
+	line "heat!"
+	done
+
+BlaineRematchDeclineText:
+	text "A quiz delayed"
+	line "is a quiz denied."
+	done
+
+BlaineRematchBeatenText:
+	text "Burned by my"
+	line "own question…"
 	done
 
 SeafoamGym_MapEvents:

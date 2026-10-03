@@ -12,6 +12,7 @@ VermilionGym_MapScripts:
 
 VermilionGymSurgeScript:
 	faceplayer
+	gym_rematch REMATCH_LT_SURGE, LtSurgeRematchOfferText, LtSurgeRematchAcceptText, LtSurgeRematchDeclineText, LtSurgeRematchBeatenText
 	opentext
 	checkflag ENGINE_THUNDERBADGE
 	iftrue .FightDone
@@ -47,6 +48,7 @@ TrainerGentlemanGregory:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_GREGORY, GregoryRematchOfferText, GregoryRematchAcceptText, GregoryRematchDeclineText, GregoryRematchBeatenText
 	opentext
 	writetext GentlemanGregoryAfterBattleText
 	waitbutton
@@ -58,6 +60,7 @@ TrainerGuitaristVincent:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_VINCENT, VincentRematchOfferText, VincentRematchAcceptText, VincentRematchDeclineText, VincentRematchBeatenText
 	opentext
 	writetext GuitaristVincentAfterBattleText
 	waitbutton
@@ -69,6 +72,7 @@ TrainerJugglerHorton:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_HORTON, HortonRematchOfferText, HortonRematchAcceptText, HortonRematchDeclineText, HortonRematchBeatenText
 	opentext
 	writetext JugglerHortonAfterBattleText
 	waitbutton
@@ -256,6 +260,104 @@ VermilionGymGuideWinText:
 VermilionGymTrashCanText:
 	text "Nope! Nothing here"
 	line "but trash."
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+LtSurgeRematchOfferText:
+	text "Ha! The army"
+	line "doesn't rest,"
+	line "kid!"
+
+	para "My voltage is"
+	line "up. You want"
+	cont "a shock?"
+	done
+
+LtSurgeRematchAcceptText:
+	text "Lock and load!"
+	done
+
+LtSurgeRematchDeclineText:
+	text "Dismissed!"
+	done
+
+LtSurgeRematchBeatenText:
+	text "Shorted out!"
+	line "Unbelievable!"
+	done
+
+GregoryRematchOfferText:
+	text "A gentleman keeps"
+	line "his appointments."
+
+	para "I scheduled"
+	line "another loss…"
+	cont "or a win."
+
+	para "Shall we?"
+	done
+
+GregoryRematchAcceptText:
+	text "After you."
+	done
+
+GregoryRematchDeclineText:
+	text "I shall wait"
+	line "politely."
+	done
+
+GregoryRematchBeatenText:
+	text "Most unsporting"
+	line "of my #MON…"
+	done
+
+VincentRematchOfferText:
+	text "New amp. Louder"
+	line "riffs."
+
+	para "My #MON are"
+	line "in tune now."
+	cont "Encore?"
+	done
+
+VincentRematchAcceptText:
+	text "One, two, three,"
+	line "four!"
+	done
+
+VincentRematchDeclineText:
+	text "I'll keep"
+	line "tuning."
+	done
+
+VincentRematchBeatenText:
+	text "Cut the amps…"
+	line "we blew it."
+	done
+
+HortonRematchOfferText:
+	text "I can juggle and"
+	line "battle now."
+
+	para "Dropped everything"
+	line "last time."
+	cont "Not today. In?"
+	done
+
+HortonRematchAcceptText:
+	text "Eyes up!"
+	done
+
+HortonRematchDeclineText:
+	text "I'll practice"
+	line "the catches."
+	done
+
+HortonRematchBeatenText:
+	text "Dropped the win."
+	line "Classic."
 	done
 
 VermilionGym_MapEvents:

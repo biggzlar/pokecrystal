@@ -122,6 +122,10 @@ endr
 rept 4
 	ld [hli], a
 endr
+	ld hl, wGymRematchFlags
+rept (NUM_GYM_REMATCHES + 7) / 8
+	ld [hli], a
+endr
 	ld hl, wKenjiBreakTimer
 	ld a, [hl]
 	and a

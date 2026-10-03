@@ -248,7 +248,9 @@ PrintWinLossText::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call GetMapScriptsBank
+
+; The pointer was stored with its bank in wSeenTrainerBank.
+	ld a, [wSeenTrainerBank]
 	call FarPrintText
 	call WaitBGMap
 	call WaitPressAorB_BlinkCursor

@@ -155,6 +155,11 @@ INCLUDE "engine/battle/read_trainer_attributes.asm"
 INCLUDE "engine/battle/read_trainer_party.asm"
 
 
+SECTION "Gym Rematches", ROMX
+
+INCLUDE "engine/events/gym_rematch.asm"
+
+
 SECTION "Battle Core", ROMX
 
 INCLUDE "engine/battle/core.asm"

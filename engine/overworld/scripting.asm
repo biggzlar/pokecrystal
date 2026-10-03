@@ -713,6 +713,11 @@ Script_winlosstext:
 	ld [hli], a
 	call GetScriptByte
 	ld [hli], a
+
+; These pointers belong to whichever bank this command is running in.
+; Trainer objects store that same bank from LoadTrainer_continue.
+	ld a, [wScriptBank]
+	ld [wSeenTrainerBank], a
 	ret
 
 Script_endifjustbattled:

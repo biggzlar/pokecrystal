@@ -28,6 +28,7 @@ BlackthornGym1FBouldersCallback:
 
 BlackthornGymClairScript:
 	faceplayer
+	gym_rematch REMATCH_CLAIR, ClairRematchOfferText, ClairRematchAcceptText, ClairRematchDeclineText, ClairRematchBeatenText
 	opentext
 	checkflag ENGINE_RISINGBADGE
 	iftrue .AlreadyGotBadge
@@ -95,6 +96,7 @@ TrainerCooltrainermPaul:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_PAUL, PaulRematchOfferText, PaulRematchAcceptText, PaulRematchDeclineText, PaulRematchBeatenText
 	opentext
 	writetext CooltrainermPaulAfterBattleText
 	waitbutton
@@ -106,6 +108,7 @@ TrainerCooltrainermMike:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_MIKE, MikeRematchOfferText, MikeRematchAcceptText, MikeRematchDeclineText, MikeRematchBeatenText
 	opentext
 	writetext CooltrainermMikeAfterBattleText
 	waitbutton
@@ -117,6 +120,7 @@ TrainerCooltrainerfLola:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_LOLA, LolaRematchOfferText, LolaRematchAcceptText, LolaRematchDeclineText, LolaRematchBeatenText
 	opentext
 	writetext CooltrainerfLolaAfterBattleText
 	waitbutton
@@ -382,6 +386,101 @@ BlackthornGymGuideWinText:
 	para "You're on the way"
 	line "to becoming the"
 	cont "#MON CHAMPION!"
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+ClairRematchOfferText:
+	text "A dragon master"
+	line "does not rest"
+	line "on one loss."
+
+	para "I have climbed"
+	line "higher."
+	cont "Face me."
+	done
+
+ClairRematchAcceptText:
+	text "Do not disappoint"
+	line "me."
+	done
+
+ClairRematchDeclineText:
+	text "Come back with"
+	line "resolve."
+	done
+
+ClairRematchBeatenText:
+	text "How…? I trained"
+	line "without rest!"
+	done
+
+PaulRematchOfferText:
+	text "Dragons respect"
+	line "strength."
+
+	para "I've been earning"
+	line "theirs."
+	cont "Show me yours."
+	done
+
+PaulRematchAcceptText:
+	text "Have at you!"
+	done
+
+PaulRematchDeclineText:
+	text "The den can"
+	line "wait."
+	done
+
+PaulRematchBeatenText:
+	text "They expected"
+	line "more of me…"
+	done
+
+MikeRematchOfferText:
+	text "CLAIR's standard"
+	line "is brutal."
+
+	para "I survived it."
+	line "Try me again."
+	done
+
+MikeRematchAcceptText:
+	text "No hesitation!"
+	done
+
+MikeRematchDeclineText:
+	text "Train harder,"
+	line "then."
+	done
+
+MikeRematchBeatenText:
+	text "She'll hear"
+	line "about this…"
+	done
+
+LolaRematchOfferText:
+	text "Grace and power."
+	line "A dragon needs"
+	line "both."
+
+	para "I have more of"
+	line "each now."
+	done
+
+LolaRematchAcceptText:
+	text "Rise, then!"
+	done
+
+LolaRematchDeclineText:
+	text "We'll be here."
+	done
+
+LolaRematchBeatenText:
+	text "Power without"
+	line "the win…"
 	done
 
 BlackthornGym1F_MapEvents:

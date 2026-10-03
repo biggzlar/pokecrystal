@@ -23,6 +23,7 @@ EcruteakGymNoopScene:
 
 EcruteakGymMortyScript:
 	faceplayer
+	gym_rematch REMATCH_MORTY, MortyRematchOfferText, MortyRematchAcceptText, MortyRematchDeclineText, MortyRematchBeatenText
 	opentext
 	checkevent EVENT_BEAT_MORTY
 	iftrue .FightDone
@@ -100,6 +101,7 @@ TrainerSageJeffrey:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_JEFFREY, JeffreyRematchOfferText, JeffreyRematchAcceptText, JeffreyRematchDeclineText, JeffreyRematchBeatenText
 	opentext
 	writetext SageJeffreyAfterBattleText
 	waitbutton
@@ -111,6 +113,7 @@ TrainerSagePing:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_PING, PingRematchOfferText, PingRematchAcceptText, PingRematchDeclineText, PingRematchBeatenText
 	opentext
 	writetext SagePingAfterBattleText
 	waitbutton
@@ -122,6 +125,7 @@ TrainerMediumMartha:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_MARTHA, MarthaRematchOfferText, MarthaRematchAcceptText, MarthaRematchDeclineText, MarthaRematchBeatenText
 	opentext
 	writetext MediumMarthaAfterBattleText
 	waitbutton
@@ -133,6 +137,7 @@ TrainerMediumGrace:
 
 .Script:
 	endifjustbattled
+	gym_rematch REMATCH_GRACE, GraceRematchOfferText, GraceRematchAcceptText, GraceRematchDeclineText, GraceRematchBeatenText
 	opentext
 	writetext MediumGraceAfterBattleText
 	waitbutton
@@ -382,6 +387,120 @@ EcruteakGymClosedText:
 	line "have to leave."
 
 	para "Hohohoho."
+	done
+
+
+; Rematch dialogue. Passed to GymRematchScript.
+
+MortyRematchOfferText:
+	text "The fog has been"
+	line "restless."
+
+	para "My ghosts are"
+	line "stronger in it."
+	cont "Step in?"
+	done
+
+MortyRematchAcceptText:
+	text "Don't look away."
+	done
+
+MortyRematchDeclineText:
+	text "The fog remains."
+	done
+
+MortyRematchBeatenText:
+	text "You saw through"
+	line "every ghost…"
+	done
+
+JeffreyRematchOfferText:
+	text "Training the mind"
+	line "never ends."
+
+	para "Sit with me for"
+	line "another battle."
+	done
+
+JeffreyRematchAcceptText:
+	text "Clear your"
+	line "thoughts."
+	done
+
+JeffreyRematchDeclineText:
+	text "Meditate on it."
+	done
+
+JeffreyRematchBeatenText:
+	text "My focus broke"
+	line "again…"
+	done
+
+PingRematchOfferText:
+	text "The spirits say"
+	line "you would return."
+
+	para "Shall we test"
+	line "that vision?"
+	done
+
+PingRematchAcceptText:
+	text "As foretold."
+	done
+
+PingRematchDeclineText:
+	text "The vision can"
+	line "wait."
+	done
+
+PingRematchBeatenText:
+	text "The spirits were"
+	line "only half right…"
+	done
+
+MarthaRematchOfferText:
+	text "I felt your"
+	line "approach before"
+	line "I saw you."
+
+	para "My ghosts want"
+	line "a rematch."
+	done
+
+MarthaRematchAcceptText:
+	text "Come forth."
+	done
+
+MarthaRematchDeclineText:
+	text "We will linger."
+	done
+
+MarthaRematchBeatenText:
+	text "The feeling"
+	line "faded…"
+	done
+
+GraceRematchOfferText:
+	text "A good medium"
+	line "learns from a"
+	line "loss."
+
+	para "Let me show you"
+	line "what I learned."
+	done
+
+GraceRematchAcceptText:
+	text "Spirits, attend."
+	done
+
+GraceRematchDeclineText:
+	text "Another séance,"
+	line "then."
+	done
+
+GraceRematchBeatenText:
+	text "They still won't"
+	line "stay…"
 	done
 
 EcruteakGym_MapEvents:

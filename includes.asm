@@ -64,6 +64,7 @@ INCLUDE "constants/sprite_data_constants.asm"
 INCLUDE "constants/tileset_constants.asm"
 INCLUDE "constants/trainer_constants.asm"
 INCLUDE "constants/trainer_data_constants.asm"
+INCLUDE "constants/gym_rematch_constants.asm"
 INCLUDE "constants/type_constants.asm"
 INCLUDE "constants/battle_tower_constants.asm"
 
