@@ -62,22 +62,13 @@ MeetMomScript:
 	iffalse .SetDayOfWeek
 .DayOfWeekDone:
 	writetext ComeHomeForDSTText
-	yesorno
-	iffalse .ExplainPhone
+	promptbutton
+	; yesorno
+	; iffalse .ExplainPhone
 	sjump .KnowPhone
 
 .KnowPhone:
 	writetext KnowTheInstructionsText
-	promptbutton
-	sjump .FinishPhone
-
-.ExplainPhone:
-	writetext DontKnowTheInstructionsText
-	promptbutton
-	sjump .FinishPhone
-
-.FinishPhone:
-	writetext InstructionsNextText
 	waitbutton
 	closetext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
@@ -85,6 +76,21 @@ MeetMomScript:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	iffalse .FromLeft
 	sjump .Finish
+
+; .ExplainPhone:
+; 	writetext DontKnowTheInstructionsText
+; 	promptbutton
+; 	sjump .FinishPhone
+
+; .FinishPhone:
+; 	writetext InstructionsNextText
+; 	waitbutton
+; 	closetext
+; 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+; 	iftrue .FromRight
+; 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+; 	iffalse .FromLeft
+; 	sjump .Finish
 
 .FromRight:
 	applymovement PLAYERSHOUSE1F_MOM1, MomTurnsBackMovement
@@ -217,32 +223,31 @@ ElmsLookingForYouText:
 	para "ELM, was looking"
 	line "for you."
 
-	para "He said he wanted"
-	line "you to do some-"
-	cont "thing for him."
+	; para "He said he wanted"
+	; line "you to do some-"
+	; cont "thing for him."
 
-	para "Oh! I almost for-"
-	line "got! Your #MON"
+	para "Before you go,"
+	line "Your #MON GEAR"
 
-	para "GEAR is back from"
+	para "is back from"
 	line "the repair shop."
 
-	para "Here you go!"
+	para "Here you are!"
 	done
 
 MomGivesPokegearText:
-	text "#MON GEAR, or"
-	line "just #GEAR."
+	; text "#MON GEAR, or"
+	; line "just #GEAR."
 
-	para "It's essential if"
-	line "you want to be a"
-	cont "good trainer."
+	; para "It's essential if"
+	; line "you want to be a"
+	; cont "good trainer."
+	text "Let's set the day"
+	line "of the week."
 
-	para "Oh, the day of the"
-	line "week isn't set."
-
-	para "You mustn't forget"
-	line "that!"
+	; para "You mustn't forget"
+	; line "that!"
 	done
 
 IsItDSTText:
@@ -256,39 +261,39 @@ ComeHomeForDSTText:
 
 	para "for Daylight"
 	line "Saving Time."
-
-	para "By the way, do you"
-	line "know how to use"
-	cont "the PHONE?"
 	done
 
 KnowTheInstructionsText:
-	text "Don't you just"
-	line "turn the #GEAR"
+	; text "Don't you just"
+	; line "turn the #GEAR"
 
-	para "on and select the"
-	line "PHONE icon?"
+	; para "on and select the"
+	; line "PHONE icon?"
+	text "I trust you know"
+	line "how to phone!"
+
+	para "Now off you go!"
 	done
 
-DontKnowTheInstructionsText:
-	text "I'll read the"
-	line "instructions."
+; DontKnowTheInstructionsText:
+; 	text "I'll read the"
+; 	line "instructions."
 
-	para "Turn the #GEAR"
-	line "on and select the"
-	cont "PHONE icon."
-	done
+; 	para "Turn the #GEAR"
+; 	line "on and select the"
+; 	cont "PHONE icon."
+; 	done
 
-InstructionsNextText:
-	text "Phone numbers are"
-	line "stored in memory."
+; InstructionsNextText:
+; 	text "Phone numbers are"
+; 	line "stored in memory."
 
-	para "Just choose a name"
-	line "you want to call."
+; 	para "Just choose a name"
+; 	line "you want to call."
 
-	para "Gee, isn't that"
-	line "convenient?"
-	done
+; 	para "Gee, isn't that"
+; 	line "convenient?"
+; 	done
 
 HurryUpElmIsWaitingText:
 	text "PROF.ELM is wait-"
