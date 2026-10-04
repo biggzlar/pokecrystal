@@ -502,12 +502,12 @@ TrySurfOW::
 	call CheckDirection
 	jr c, .quit
 
-	ld de, ENGINE_FOGBADGE
-	call CheckEngineFlag
-	jr c, .quit
-
 	ld d, SURF
 	call CheckPartyMove
+	jr c, .no_surf
+
+	ld de, ENGINE_FOGBADGE
+	call CheckEngineFlag
 	jr c, .quit
 
 	ld hl, wBikeFlags
@@ -525,9 +525,27 @@ TrySurfOW::
 	scf
 	ret
 
+.no_surf
+	ld a, BANK(CantSurfYetScript)
+	ld hl, CantSurfYetScript
+	call CallScript
+	scf
+	ret
+
 .quit
 	xor a
 	ret
+
+CantSurfYetScript:
+	opentext
+	writetext CantSurfYetText
+	waitbutton
+	closetext
+	end
+
+CantSurfYetText:
+	text_far _CantSurfYetText
+	text_end
 
 AskSurfScript:
 	opentext

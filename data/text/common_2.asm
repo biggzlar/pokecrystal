@@ -342,6 +342,23 @@ _AskSurfText::
 	line "Want to SURF?"
 	done
 
+_CantSurfYetText::
+	text "The water is calm"
+	line "yet I can't see"
+	cont "my reflection."
+
+	para "Are these the"
+	line "limits of my"
+	cont "world?"
+
+	para "Or a mere lack of"
+	line "perspective?"
+
+	para "Oh, to split that"
+	line "mirror and see"
+	cont "what lies beyond."
+	done
+
 _UseWaterfallText::
 	text_ram wStringBuffer2
 	text " used"
