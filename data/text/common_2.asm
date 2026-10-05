@@ -599,6 +599,16 @@ _SweetScentNothingText::
 	line "nothing here…"
 	done
 
+_UsedTomorrowText::
+	text_ram wStringBuffer3
+	text " used"
+	line "TIME WALK!"
+	done
+
+_TomorrowDayPassedText::
+	text "A day passed."
+	done
+
 _SquirtbottleNothingText::
 	text "<PLAYER> sprinkled"
 	line "water."

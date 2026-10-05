@@ -5993,6 +5993,15 @@ INCLUDE "engine/battle/move_effects/leech_seed.asm"
 
 INCLUDE "engine/battle/move_effects/splash.asm"
 
+BattleCommand_Tomorrow:
+	ldh a, [hBattleTurn]
+	push af
+	call AnimateCurrentMove
+	farcall TomorrowEffect
+	pop af
+	ldh [hBattleTurn], a
+	ret
+
 INCLUDE "engine/battle/move_effects/disable.asm"
 
 INCLUDE "engine/battle/move_effects/pay_day.asm"

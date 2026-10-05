@@ -2077,3 +2077,11 @@ DefenseCurl:
 	statupmessage
 	statupfailtext
 	endmove
+
+Tomorrow:
+	checkobedience
+	usedmovetext
+	doturn
+	tomorrow
+	checkfaint
+	endmove

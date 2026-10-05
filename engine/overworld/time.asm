@@ -442,3 +442,62 @@ CopyDayHourMinToHL:
 	ldh a, [hMinutes]
 	ld [hli], a
 	ret
+
+TomorrowFromMenu:
+; Field move: skip ahead one calendar day.
+	ld hl, .Script
+	call QueueScript
+	ld a, $1
+	ld [wFieldMoveSucceeded], a
+	ret
+
+.Script:
+	refreshmap
+	callasm GetPartyNickname
+	writetext UsedTomorrowText
+	waitbutton
+	closetext
+	special FadeOutToBlack
+	special ReloadSpritesNoPalettes
+	callasm BlackOutSpritePals
+	callasm AdvanceOneDay
+	pause 25
+	special FadeInFromBlack
+	opentext
+	writetext TomorrowDayPassedText
+	waitbutton
+	closetext
+	end
+
+; wStartDay is the offset added to the RTC, so this sticks.
+; The next time check then clears the daily flags.
+AdvanceOneDay:
+	ld hl, wStartDay
+	inc [hl]
+	jp UpdateTime
+
+; Fruit trees keep a gray silhouette through the fade: their sprite
+; palette's last color is gray, and the fade turns the whole sprite
+; into that color. Blank every sprite palette for the black screen.
+BlackOutSpritePals:
+	ldh a, [rWBK]
+	push af
+	ld a, BANK(wOBPals2)
+	ldh [rWBK], a
+	ld hl, wOBPals2
+	ld bc, 8 palettes
+	xor a
+	call ByteFill
+	pop af
+	ldh [rWBK], a
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	jp DelayFrame
+
+UsedTomorrowText:
+	text_far _UsedTomorrowText
+	text_end
+
+TomorrowDayPassedText:
+	text_far _TomorrowDayPassedText
+	text_end

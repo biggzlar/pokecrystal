@@ -159,6 +159,21 @@ BattleText_TheSandstormSubsided:
 	line "subsided."
 	prompt
 
+BattleText_TomorrowMorning:
+	text "A new morning"
+	line "breaks!"
+	prompt
+
+BattleText_TomorrowDay:
+	text "The sun climbs"
+	line "high!"
+	prompt
+
+BattleText_TomorrowNight:
+	text "Night falls over"
+	line "the field!"
+	prompt
+
 BattleText_EnemyMonFainted:
 	text "Enemy @"
 	text_ram wEnemyMonNickname

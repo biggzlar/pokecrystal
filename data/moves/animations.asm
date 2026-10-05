@@ -253,8 +253,8 @@ BattleAnimations::
 	dw BattleAnim_RockSmash
 	dw BattleAnim_Whirlpool
 	dw BattleAnim_BeatUp
+	dw BattleAnim_Tomorrow
 	assert_table_length NUM_ATTACKS + 1
-	dw BattleAnim_Dummy
 	dw BattleAnim_Dummy
 	dw BattleAnim_Dummy
 	dw BattleAnim_SweetScent2
@@ -2010,6 +2010,33 @@ BattleAnim_Splash:
 	anim_wait 96
 	anim_incbgeffect BATTLE_BG_EFFECT_BOUNCE_DOWN
 	anim_call BattleAnim_ShowMon_0
+	anim_ret
+
+BattleAnim_Tomorrow:
+	anim_sound 0, 0, SFX_PSYCHIC
+	anim_bgp $f4
+	anim_obp0 $f4
+	anim_obp1 $f4
+	anim_wait 8
+	anim_bgp $fc
+	anim_obp0 $fc
+	anim_obp1 $fc
+	anim_wait 8
+	anim_bgp $ff
+	anim_obp0 $ff
+	anim_obp1 $ff
+	anim_wait 40
+	anim_bgp $fc
+	anim_obp0 $fc
+	anim_obp1 $fc
+	anim_wait 8
+	anim_bgp $f4
+	anim_obp0 $f4
+	anim_obp1 $f4
+	anim_wait 8
+	anim_bgp $e4
+	anim_obp0 $e4
+	anim_obp1 $e4
 	anim_ret
 
 BattleAnim_Dig:

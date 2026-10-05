@@ -40,42 +40,64 @@ Debug_GiveParty:
 	ld [wCurPartySpecies], a
 	ld a, [hli]
 	ld [wCurPartyLevel], a
-	ld a, [hli]
 	push hl
-	push af
 	xor a
 	ld [wMonType], a
 	predef TryAddMonToParty
-	pop af
-	and a
-	jr z, .next
-	ld d, a
 	ld a, [wPartyCount]
 	dec a
 	ld hl, wPartyMon1Moves
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
-	ld a, d
-	ld [hl], a
-	push hl
-	ld bc, wPartyMon1PP - wPartyMon1Moves
-	add hl, bc
 	ld d, h
 	ld e, l
 	pop hl
+	ld b, NUM_MOVES
+.copy_move
+	ld a, [hl]
+	and a
+	jr z, .end_list
+	ld [de], a
+	inc hl
+	inc de
+	dec b
+	jr nz, .copy_move
+.end_list
+	ld a, b
+	cp NUM_MOVES
+	ld a, [hli]
+	jr z, .loop
+	and a
+	jr z, .fill_pp
+	dec hl
+.fill_pp
+	push hl
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMon1Moves
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld d, h
+	ld e, l
+	ld bc, wPartyMon1PP - wPartyMon1Moves
+	add hl, bc
+	push hl
+	ld h, d
+	ld l, e
+	pop de
 	predef FillPP
-.next
 	pop hl
 	jr .loop
 
 .Party:
-; species, level, extra first move (NO_MOVE to keep level-up moves)
+; species, level, then moves ending in NO_MOVE.
+; Listed moves overwrite the level-up set from the first slot.
+	db SNORLAX,    70, MORNING_SUN, TOXIC, PERISH_SONG, TIME_WALK, NO_MOVE
 	db TYPHLOSION, 70, NO_MOVE
 	db FERALIGATR, 70, NO_MOVE
 	db MEGANIUM,   70, NO_MOVE
-	db PIDGEOT,    70, FLY
-	db LAPRAS,     70, SURF
-	db SNORLAX,    70, NO_MOVE
+	db PIDGEOT,    70, FLY, NO_MOVE
+	db LAPRAS,     70, SURF, NO_MOVE
 	db 0
 
 Debug_GiveItems:
@@ -109,6 +131,7 @@ Debug_GiveItems:
 	db HM_FLASH,      1
 	db HM_WHIRLPOOL,  1
 	db HM_WATERFALL,  1
+	db GS_BALL,       1
 	db 0
 
 Debug_GiveProgress:
@@ -180,6 +203,19 @@ Debug_GiveProgress:
 	dw EVENT_GOT_TM24_DRAGONBREATH
 	dw EVENT_GOT_TM19_GIGA_DRAIN
 	dw EVENT_GOT_TM06_TOXIC
+; Kurt will take the GS Ball. The forest is not restless yet.
+	dw EVENT_CLEARED_SLOWPOKE_WELL
+	dw EVENT_KURT_GAVE_YOU_LURE_BALL
+	dw EVENT_CAN_GIVE_GS_BALL_TO_KURT
+	dw EVENT_GOT_GS_BALL_FROM_GOLDENROD_POKEMON_CENTER
+	dw EVENT_AZALEA_TOWN_KURT
+	dw EVENT_AZALEA_TOWN_SLOWPOKETAIL_ROCKET
+	dw EVENT_SLOWPOKE_WELL_ROCKETS
+	dw EVENT_RIVAL_AZALEA_TOWN
+	dw EVENT_KURTS_HOUSE_KURT_2
+	dw EVENT_KURTS_HOUSE_GRANDDAUGHTER_2
+	dw EVENT_ILEX_FOREST_KURT
+	dw EVENT_ILEX_FOREST_LASS
 	dw -1
 
 Debug_SetGymRematchEvents:
@@ -206,16 +242,16 @@ Debug_SetGymRematchEvents:
 	ret
 
 Debug_SetWarp:
-; Violet City, one tile south of the gym door.
-	ld a, GROUP_VIOLET_CITY
+; Kurt's house, on the tile in front of him.
+	ld a, GROUP_KURTS_HOUSE
 	ld [wMapGroup], a
-	ld a, MAP_VIOLET_CITY
+	ld a, MAP_KURTS_HOUSE
 	ld [wMapNumber], a
-	ld a, 18
+	ld a, 3
 	ld [wXCoord], a
-	ld a, 18
+	ld a, 3
 	ld [wYCoord], a
-	ld a, LANDMARK_VIOLET_CITY
+	ld a, LANDMARK_AZALEA_TOWN
 	ld [wPrevLandmark], a
 	ld a, SPAWN_N_A
 	ld [wDefaultSpawnpoint], a

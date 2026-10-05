@@ -146,6 +146,10 @@ SECTION "Effect Commands", ROMX
 
 INCLUDE "engine/battle/effect_commands.asm"
 
+SECTION "Tomorrow", ROMX
+
+INCLUDE "engine/battle/move_effects/tomorrow.asm"
+
 
 SECTION "Enemy Trainers", ROMX
 

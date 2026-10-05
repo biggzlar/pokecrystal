@@ -252,15 +252,18 @@ MoveDescriptions::
 	dw RockSmashDescription
 	dw WhirlpoolDescription
 	dw BeatUpDescription
+	dw TomorrowDescription
 	assert_table_length NUM_ATTACKS
-	dw MoveFCDescription
 	dw MoveFDDescription
 	dw MoveFEDescription
 	dw MoveFFDescription
 	dw Move00Description
 	assert_table_length $100
 
-MoveFCDescription:
+TomorrowDescription:
+	db   "A day passes."
+	next "Clocks jump ahead.@"
+
 MoveFDDescription:
 MoveFEDescription:
 MoveFFDescription:
