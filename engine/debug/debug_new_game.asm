@@ -96,7 +96,7 @@ Debug_GiveParty:
 	db TYPHLOSION, 70, NO_MOVE
 	db FERALIGATR, 70, NO_MOVE
 	db MEGANIUM,   70, NO_MOVE
-	db PIDGEOT,    70, FLY, NO_MOVE
+	db SKARMORY,   41, NO_MOVE
 	db LAPRAS,     70, SURF, NO_MOVE
 	db 0
 
