@@ -53,7 +53,31 @@ SetFacingStepAction:
 	add hl, bc
 	ld a, [hl]
 	inc a
+; Running crosses a tile in half as many frames as walking.
+	push af
+	ldh a, [hMapObjectIndex]
+	ld hl, wCenteredObject
+	cp [hl]
+	jr nz, .single_frame
+	ld a, [wPlayerState]
+	cp PLAYER_NORMAL
+	jr nz, .single_frame
+	ld hl, OBJECT_WALKING
+	add hl, bc
+	ld a, [hl]
+	and %00001100
+	cp STEP_BIKE << 2
+	jr nz, .single_frame
+	pop af
+	inc a
+	jr .store_frame
+
+.single_frame
+	pop af
+.store_frame
 	and %00001111
+	ld hl, OBJECT_STEP_FRAME
+	add hl, bc
 	ld [hl], a
 
 	rrca

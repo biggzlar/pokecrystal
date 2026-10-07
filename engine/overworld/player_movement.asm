@@ -298,9 +298,29 @@ DoPlayerMovement::
 	ret
 
 .walk
+; Hold B to run at the same speed as the bicycle.
+	call .RunCheck
+	jr z, .fast
 	ld a, STEP_WALK
 	call .DoStep
 	scf
+	ret
+
+; z if B is held while walking.
+.RunCheck:
+	ld a, [wWalkingDirection]
+	cp STANDING
+	jr z, .not_running
+	ld a, [wPlayerState]
+	cp PLAYER_NORMAL
+	jr nz, .not_running
+	ld a, [wCurInput]
+	and PAD_B
+	cp PAD_B
+	ret
+
+.not_running
+	or 1
 	ret
 
 .ice
