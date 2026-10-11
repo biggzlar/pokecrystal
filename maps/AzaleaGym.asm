@@ -371,7 +371,7 @@ AzaleaGymGuideWinText:
 BugsyRematchOfferText:
 	text "My bug research"
 	line "has come a long"
-	line "way."
+	cont "way."
 
 	para "Want to see the"
 	line "new data?"
@@ -395,7 +395,7 @@ BugsyRematchBeatenText:
 AmyAndMay1RematchOfferText:
 	text "AMY: We've been"
 	line "training as a"
-	line "pair."
+	cont "pair."
 
 	para "MAY and I want"
 	line "a rematch!"
@@ -418,7 +418,7 @@ AmyAndMay1RematchBeatenText:
 AmyAndMay2RematchOfferText:
 	text "MAY: Don't think"
 	line "one win means"
-	line "we're done."
+	cont "we're done."
 
 	para "AMY and I are"
 	line "ready. You?"
@@ -464,7 +464,7 @@ BennyRematchBeatenText:
 AlRematchOfferText:
 	text "I found stronger"
 	line "bugs on the"
-	line "routes."
+	cont "routes."
 
 	para "Want to see"
 	line "them?"

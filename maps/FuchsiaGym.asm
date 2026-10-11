@@ -389,7 +389,7 @@ FuchsiaGymGuideWinText:
 JanineRematchOfferText:
 	text "A ninja who"
 	line "repeats a loss"
-	line "is sloppy."
+	cont "is sloppy."
 
 	para "My poisons are"
 	line "sharper."
@@ -413,7 +413,7 @@ JanineRematchBeatenText:
 AliceRematchOfferText:
 	text "Hehe. Think you"
 	line "know who's under"
-	line "this?"
+	cont "this?"
 
 	para "Battle me and"
 	line "find out…"

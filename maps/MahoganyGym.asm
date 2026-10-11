@@ -382,7 +382,7 @@ MahoganyGymGuideWinText:
 PryceRematchOfferText:
 	text "Age has not"
 	line "slowed my"
-	line "training."
+	cont "training."
 
 	para "The cold makes"
 	line "us sharper."
@@ -453,7 +453,7 @@ ClarissaRematchBeatenText:
 RonaldRematchOfferText:
 	text "Boarding in a"
 	line "gym is weird."
-	line "I know."
+	cont "I know."
 
 	para "I've been"
 	line "grinding anyway."
@@ -476,7 +476,7 @@ RonaldRematchBeatenText:
 BradRematchOfferText:
 	text "Cold never"
 	line "bothered my"
-	line "team."
+	cont "team."
 
 	para "They're even"
 	line "icier now."
@@ -499,7 +499,7 @@ BradRematchBeatenText:
 DouglasRematchOfferText:
 	text "I ride until I"
 	line "can't feel my"
-	line "face."
+	cont "face."
 
 	para "That means I'm"
 	line "ready. Are you?"

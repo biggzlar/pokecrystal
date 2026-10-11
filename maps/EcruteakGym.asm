@@ -461,7 +461,7 @@ PingRematchBeatenText:
 MarthaRematchOfferText:
 	text "I felt your"
 	line "approach before"
-	line "I saw you."
+	cont "I saw you."
 
 	para "My ghosts want"
 	line "a rematch."
@@ -483,7 +483,7 @@ MarthaRematchBeatenText:
 GraceRematchOfferText:
 	text "A good medium"
 	line "learns from a"
-	line "loss."
+	cont "loss."
 
 	para "Let me show you"
 	line "what I learned."

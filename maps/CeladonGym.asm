@@ -277,7 +277,7 @@ TwinsJoAndZoe2AfterBattleText:
 ErikaRematchOfferText:
 	text "The flowers bloom"
 	line "on their own"
-	line "time."
+	cont "time."
 
 	para "Mine have opened"
 	line "a little more."
@@ -302,7 +302,7 @@ ErikaRematchBeatenText:
 MichelleRematchOfferText:
 	text "I talk to the"
 	line "plants every"
-	line "morning."
+	cont "morning."
 
 	para "They've perked"
 	line "up. See?"
@@ -325,7 +325,7 @@ MichelleRematchBeatenText:
 TanyaRematchOfferText:
 	text "Picnics are"
 	line "better after"
-	line "a win."
+	cont "a win."
 
 	para "I still owe"
 	line "you one."
@@ -349,7 +349,7 @@ TanyaRematchBeatenText:
 JuliaRematchOfferText:
 	text "Petals and poise."
 	line "I've practiced"
-	line "both."
+	cont "both."
 
 	para "A rematch, if"
 	line "you please."
@@ -372,7 +372,7 @@ JuliaRematchBeatenText:
 JoAndZoe1RematchOfferText:
 	text "JO: ZOE and I"
 	line "switched our"
-	line "lead."
+	cont "lead."
 
 	para "It might fool"
 	line "you. Try us?"

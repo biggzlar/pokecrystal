@@ -299,7 +299,7 @@ SaffronGymGuideWinText:
 SabrinaRematchOfferText:
 	text "I already know"
 	line "how this battle"
-	line "ends."
+	cont "ends."
 
 	para "I want to see"
 	line "if you do."
@@ -367,7 +367,7 @@ FranklinRematchBeatenText:
 DorisRematchOfferText:
 	text "I hear thoughts"
 	line "more clearly"
-	line "now."
+	cont "now."
 
 	para "Yours say you"
 	line "want a battle."
@@ -391,7 +391,7 @@ DorisRematchBeatenText:
 JaredRematchOfferText:
 	text "SABRINA's lessons"
 	line "leave no room"
-	line "to coast."
+	cont "to coast."
 
 	para "I haven't."
 	line "Battle me."

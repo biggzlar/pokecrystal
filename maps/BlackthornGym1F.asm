@@ -394,7 +394,7 @@ BlackthornGymGuideWinText:
 ClairRematchOfferText:
 	text "A dragon master"
 	line "does not rest"
-	line "on one loss."
+	cont "on one loss."
 
 	para "I have climbed"
 	line "higher."
@@ -464,7 +464,7 @@ MikeRematchBeatenText:
 LolaRematchOfferText:
 	text "Grace and power."
 	line "A dragon needs"
-	line "both."
+	cont "both."
 
 	para "I have more of"
 	line "each now."

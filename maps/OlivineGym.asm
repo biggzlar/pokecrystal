@@ -213,7 +213,7 @@ JasmineRematchOfferText:
 JasmineRematchAcceptText:
 	text "Then… please"
 	line "give it your"
-	line "all."
+	cont "all."
 	done
 
 JasmineRematchDeclineText:

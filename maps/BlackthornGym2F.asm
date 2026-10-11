@@ -131,7 +131,7 @@ BlackthornGym2FBoulderFellText:
 CodyRematchOfferText:
 	text "The upper floor"
 	line "is where we"
-	line "sharpen up."
+	cont "sharpen up."
 
 	para "I've had time."
 	line "Battle?"
@@ -154,7 +154,7 @@ CodyRematchBeatenText:
 FranRematchOfferText:
 	text "I study dragon"
 	line "movement between"
-	line "shifts."
+	cont "shifts."
 
 	para "Want to see the"
 	line "difference?"

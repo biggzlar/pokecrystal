@@ -268,7 +268,7 @@ VermilionGymTrashCanText:
 LtSurgeRematchOfferText:
 	text "Ha! The army"
 	line "doesn't rest,"
-	line "kid!"
+	cont "kid!"
 
 	para "My voltage is"
 	line "up. You want"

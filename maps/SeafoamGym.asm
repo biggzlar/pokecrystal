@@ -162,7 +162,7 @@ SeafoamGymGuideWinText2:
 BlaineRematchOfferText:
 	text "The volcano's"
 	line "still lit, and"
-	line "so am I!"
+	cont "so am I!"
 
 	para "Riddle me this:"
 	line "are you hotter"

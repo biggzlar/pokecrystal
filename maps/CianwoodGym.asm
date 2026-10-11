@@ -314,7 +314,7 @@ BlackbeltLungAfterText:
 ChuckRematchOfferText:
 	text "I have not missed"
 	line "a day of"
-	line "training!"
+	cont "training!"
 
 	para "My fists are"
 	line "ready. Yours?"
@@ -338,7 +338,7 @@ ChuckRematchBeatenText:
 YoshiRematchOfferText:
 	text "A blackbelt who"
 	line "stops training"
-	line "goes soft."
+	cont "goes soft."
 
 	para "I haven't."
 	line "Fight me."

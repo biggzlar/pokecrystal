@@ -238,7 +238,7 @@ BrockRematchBeatenText:
 JerryRematchOfferText:
 	text "Camping out here"
 	line "built up my"
-	line "team."
+	cont "team."
 
 	para "They're restless."
 	line "Battle?"

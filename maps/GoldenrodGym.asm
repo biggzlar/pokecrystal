@@ -388,7 +388,7 @@ GoldenrodGymGuideWinText:
 WhitneyRematchOfferText:
 	text "You're not making"
 	line "me cry this"
-	line "time!"
+	cont "time!"
 
 	para "MILTANK and I"
 	line "have been"
@@ -435,7 +435,7 @@ CarrieRematchBeatenText:
 BridgetRematchOfferText:
 	text "I only raise the"
 	line "most adorable"
-	line "#MON."
+	cont "#MON."
 
 	para "They've grown."
 	line "Battle us?"

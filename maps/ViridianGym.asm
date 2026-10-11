@@ -174,7 +174,7 @@ ViridianGymGuideWinText:
 BlueRematchOfferText:
 	text "Champ or not,"
 	line "I don't sit"
-	line "still."
+	cont "still."
 
 	para "My team's meaner."
 	line "You want the"
