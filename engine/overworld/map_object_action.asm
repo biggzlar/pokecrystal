@@ -125,6 +125,32 @@ SetFacingBumpAction:
 	bit SLIDING_F, [hl]
 	jp nz, SetFacingCurrent
 
+; Running into a wall still plays the run cycle.
+	ldh a, [hMapObjectIndex]
+	ld hl, wCenteredObject
+	cp [hl]
+	jr nz, .bump
+	ld a, [wPlayerState]
+	cp PLAYER_NORMAL
+	jr nz, .bump
+	ld a, [wCurInput]
+	and PAD_B
+	jr z, .bump
+
+	ld hl, OBJECT_STEP_FRAME
+	add hl, bc
+	ld a, [hl]
+	add 2
+	and %00001111
+	ld [hl], a
+
+	rrca
+	rrca
+	maskbits NUM_DIRECTIONS
+	ld d, a
+	jr .facing
+
+.bump
 	ld hl, OBJECT_STEP_FRAME
 	add hl, bc
 	inc [hl]
@@ -135,6 +161,8 @@ SetFacingBumpAction:
 	rrca
 	maskbits NUM_DIRECTIONS
 	ld d, a
+
+.facing
 
 	call GetSpriteDirection
 	or FACING_STEP_DOWN_0 ; useless
