@@ -1522,10 +1522,11 @@ BugCatcherGroup:
 	db -1 ; end
 
 	; BUG_CATCHER (5)
-	db "BENNY@", TRAINERTYPE_NORMAL
-	db  7, WEEDLE
-	db  9, KAKUNA
-	db 12, BEEDRILL
+	; Moves a Weedle keeps when it evolves, then what the new form learns.
+	db "BENNY@", TRAINERTYPE_MOVES
+	db  7, WEEDLE,    POISON_STING, STRING_SHOT, NO_MOVE, NO_MOVE
+	db  9, KAKUNA,    POISON_STING, STRING_SHOT, HARDEN, NO_MOVE
+	db 12, BEEDRILL,  POISON_STING, STRING_SHOT, HARDEN, FURY_ATTACK
 	db -1 ; end
 
 	; BUG_CATCHER (6)

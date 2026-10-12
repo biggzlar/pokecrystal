@@ -20,12 +20,19 @@ AI_SwitchOrTryItem:
 	and a
 	jr nz, DontSwitch
 
-	; always load the first trainer class in wTrainerClass for Battle Tower trainers
+	; Battle Tower trainers, and Benny, use Falkner's switch habit.
 	ld hl, TrainerClassAttributes + TRNATTR_AI_ITEM_SWITCH
 	ld a, [wInBattleTowerBattle]
 	and a
 	jr nz, .ok
+	ld a, [wTrainerClass]
+	cp BUG_CATCHER
+	jr nz, .use_class
+	ld a, [wOtherTrainerID]
+	cp BUG_CATCHER_BENNY
+	jr z, .ok
 
+.use_class
 	ld a, [wTrainerClass]
 	dec a
 	ld bc, NUM_TRAINER_ATTRIBUTES

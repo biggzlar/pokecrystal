@@ -3228,6 +3228,55 @@ endr
 INCLUDE "data/battle/ai/risky_effects.asm"
 
 
+AI_Control:
+; Favor status, including a hit that poisons, while the foe has none.
+; A move that can knock out still scores lower in AI_Risky.
+
+	ld a, [wBattleMonStatus]
+	and a
+	ret nz
+
+	ld hl, wEnemyAIMoveScores - 1
+	ld de, wEnemyMonMoves
+	ld b, NUM_MOVES + 1
+.checkmove
+	dec b
+	ret z
+
+	inc hl
+	ld a, [de]
+	and a
+	ret z
+
+	inc de
+	call AIGetEnemyMove
+
+	push hl
+	push de
+	push bc
+	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
+	ld hl, StatusControlEffects
+	ld de, 1
+	call IsInArray
+	pop bc
+	pop de
+	pop hl
+	jr nc, .checkmove
+
+	dec [hl]
+	dec [hl]
+	jr .checkmove
+
+StatusControlEffects:
+	db EFFECT_SLEEP
+	db EFFECT_POISON
+	db EFFECT_POISON_HIT
+	db EFFECT_POISON_MULTI_HIT
+	db EFFECT_PARALYZE
+	db EFFECT_TOXIC
+	db EFFECT_CONFUSE
+	db -1 ; end
+
 AI_None:
 	ret
 

@@ -64,13 +64,21 @@ AIChooseMove:
 .ApplyLayers:
 	ld hl, TrainerClassAttributes + TRNATTR_AI_MOVE_WEIGHTS
 
-	; If we have a battle in Battle Tower, just load the attributes of the first
-	; trainer class in TrainerClassAttributes (Falkner), so we have always the
-	; same AI, regardless of the loaded class of trainer.
+	; Battle Tower fights ignore the loaded class and always use Falkner's
+	; weights, the first row. Benny does the same, so his Weedle line can
+	; be fought with that AI without turning the whole battle into a Tower
+	; fight (that path would skip loading his party).
 	ld a, [wInBattleTowerBattle]
 	bit IN_BATTLE_TOWER_BATTLE_F, a
 	jr nz, .battle_tower_skip
+	ld a, [wTrainerClass]
+	cp BUG_CATCHER
+	jr nz, .use_class
+	ld a, [wOtherTrainerID]
+	cp BUG_CATCHER_BENNY
+	jr z, .battle_tower_skip
 
+.use_class
 	ld a, [wTrainerClass]
 	dec a
 	ld bc, NUM_TRAINER_ATTRIBUTES
@@ -210,7 +218,7 @@ AIScoringPointers:
 	dw AI_Cautious
 	dw AI_Status
 	dw AI_Risky
-	dw AI_None
+	dw AI_Control
 	dw AI_None
 	dw AI_None
 	dw AI_None
