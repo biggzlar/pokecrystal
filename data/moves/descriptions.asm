@@ -1119,8 +1119,8 @@ MeanLookDescription:
 	next "or switching.@"
 
 AttractDescription:
-	db   "Makes the opposite"
-	next "gender infatuated.@"
+	db   "Makes the foe"
+	next "infatuated.@"
 
 SleepTalkDescription:
 	db   "Randomly attacks"

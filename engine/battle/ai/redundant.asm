@@ -142,8 +142,6 @@ AI_Redundant:
 	jr .NotRedundant
 
 .Attract:
-	farcall CheckOppositeGender
-	jr c, .Redundant
 	ld a, [wPlayerSubStatus1]
 	bit SUBSTATUS_IN_LOVE, a
 	ret
